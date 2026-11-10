@@ -1,5 +1,7 @@
 # chart-board-with-voice-assistance
 
+![python](https://img.shields.io/badge/python-3.10+-blue) ![license](https://img.shields.io/badge/license-MIT-green) ![tests](https://img.shields.io/badge/tests-11%20passing-brightgreen)
+
 doc chat - ask questions about your own documents and get answers back with the sources they came from. That's all it does.
 
 I built this because I kept re-reading the same handbook and support docs, and searching them with ctrl-F only works when you already know the exact word the document used. This searches by meaning as well as by word.
@@ -63,6 +65,8 @@ Four steps, each in its own small file:
 
 `rag/topics.py` runs k-means over the chunks to show what a set of documents is about. Mostly useful when someone hands you 40 files and you don't know where to start.
 
+More detail in [docs/architecture.md](docs/architecture.md), day-to-day use in [docs/usage.md](docs/usage.md), and how the numbers are checked in [docs/evaluation.md](docs/evaluation.md).
+
 ## Checking it works
 
 ```
@@ -85,6 +89,7 @@ rag/
   answer.py     turning results into an answer
   topics.py     k-means topic clusters
 data/docs/      put documents here
+docs/           architecture, usage and evaluation notes
 eval/           questions with known answers, and the script that scores them
 tests/
 ```
