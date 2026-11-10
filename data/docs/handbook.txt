@@ -1,0 +1,36 @@
+Northwind Studio - team handbook
+Last updated March 2026. If something in here clashes with your contract, your contract wins.
+
+Working hours and remote work
+
+We don't track hours. Most people are around between 10 and 4 in their own timezone and that overlap is when meetings happen. You can work fully remote. If you want a desk, we have the Shoreditch office and a small space in Berlin, just book one in the sheet before you turn up.
+
+We ask for one thing: if you're going to be offline for more than half a day during the week, put it in the team calendar. Nobody approves it, it's just so people aren't waiting on a reply that isn't coming.
+
+Annual leave
+
+Everyone gets 25 days of annual leave a year, plus public holidays where you live. Leave doesn't roll over except for up to 5 days, and only if you agree it with your lead before the end of December.
+
+Book leave in BreatheHR at least two weeks ahead if you can. For anything longer than two weeks at once, talk to your lead first - not for permission exactly, more so cover can be arranged.
+
+Sick leave is separate from annual leave and doesn't come out of your 25 days. If you're ill, be ill. You don't need a doctor's note for the first five working days.
+
+Pay and expenses
+
+Salaries are paid on the last working day of the month, to the account on file with Finance. If that day is a bank holiday it moves to the day before.
+
+You can expense reasonable work costs up to 250 pounds without pre-approval: travel to a client, books, a course, a decent pair of headphones. Over 250 pounds, check with your lead first. Put receipts in Expensify within 30 days or finance will chase you and then give up, and then you won't get the money back.
+
+Everyone gets a 1,500 pound yearly learning budget. It doesn't roll over. Courses, conferences and books all count.
+
+Equipment
+
+When you start you get a laptop (Mac or Windows, your choice), a monitor for home, and a 400 pound budget for a chair and desk bits. The laptop is replaced every three years unless it breaks sooner.
+
+If something breaks, message IT in Slack, don't suffer with a dead trackpad for a month like Tom did.
+
+Probation and reviews
+
+Probation is three months. Reviews are every six months, in April and October, and they're a conversation, not a scoring exercise. Pay is reviewed once a year in April.
+
+If you're struggling, say so early. In almost every case where things have gone wrong here, the problem was that nobody said anything until it was too late.

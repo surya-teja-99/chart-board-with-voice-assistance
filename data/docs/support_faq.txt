@@ -1,0 +1,23 @@
+Support - questions we actually get asked
+
+My password reset email never arrives
+
+Check spam first, genuinely, it's spam about half the time. If it's not there, wait ten minutes - the mail service batches them sometimes. Still nothing, ask an admin on your account to check the email address we have for you. Support can't change an account email address for you, that has to be done by an admin on the account for security reasons.
+
+I've been charged twice
+
+This is almost always a pending charge rather than two real charges. When a card payment is authorised and then the subscription is changed quickly, the bank shows both for a few days and one drops off. If both are still there after five working days, send support the last four digits of the card and the dates and we'll look at it from our side. Don't send a full card number, we'd only have to delete it.
+
+How do I cancel?
+
+Settings, then Billing, then Cancel. The account stays usable until the end of the period you've paid for, then goes read-only for 90 days, then is deleted. Export your reports before you cancel if you want them, you can't get them back after deletion.
+
+Read-only doesn't mean locked out. You can still log in, view and export during those 90 days, you just can't create new jobs.
+
+Can I move my data to another account?
+
+Reports can be exported as PDFs or as a zip of CSV files from Settings, Data, Export. Moving jobs between accounts isn't something the product does - the export is the way. If you've got thousands of jobs, talk to us before you start clicking export one at a time, there's a bulk route we can run for you.
+
+The app says my device isn't supported
+
+You need Android 10 or newer, or iOS 15 or newer. On iOS the usual cause is an old iPad that's been in a van for six years. There's no workaround for this one, the app will not install.
