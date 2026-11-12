@@ -25,3 +25,10 @@ def test_build_chunks_keeps_source():
     out = build_chunks(docs)
     assert out[0]["source"] == "a.txt"
     assert "hello" in out[0]["text"]
+
+
+def test_long_chunks_break_at_sentence_ends():
+    text = " ".join(f"Sentence number {i} is here." for i in range(20))
+    chunks = chunk_text(text, size=100, overlap=20)
+    assert len(chunks) > 1
+    assert chunks[0].endswith(".")
