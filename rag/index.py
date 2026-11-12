@@ -14,6 +14,12 @@ def _norm(scores):
     return (scores - lo) / (hi - lo)
 
 
+def _clean_query(query):
+    # people paste questions with extra spaces and newlines in them,
+    # and the search doesn't need any of that
+    return " ".join(str(query).split())
+
+
 class Index:
     # retrieval is two things at once here:
     # tf-idf catches exact words (names, terms, error codes) and the
@@ -35,6 +41,9 @@ class Index:
 
     def search(self, query, k=4, rerank=True):
         if not self.chunks:
+            return []
+        query = _clean_query(query)
+        if not query:
             return []
 
         q = self.vectorizer.transform([query])
