@@ -1,4 +1,12 @@
+import re
 from pathlib import Path
+
+
+def _join_hyphenated(text):
+    # pdfs split words at line ends with a hyphen: "hand-\nbook"
+    # is one word, so join it back before the line break becomes
+    # a space and tf-idf sees two half-words instead.
+    return re.sub(r"(\w)-\n(\w)", r"\1\2", text)
 
 
 def read_file(path):
@@ -41,6 +49,7 @@ def load_folder(folder):
 
 
 def chunk_text(text, size=900, overlap=150):
+    text = _join_hyphenated(text)
     # first try to keep paragraphs together, it reads better in the
     # results and the model gets a coherent bit of text instead of
     # something cut in the middle of an argument
