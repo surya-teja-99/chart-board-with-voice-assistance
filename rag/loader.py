@@ -1,6 +1,20 @@
 from pathlib import Path
 
 
+def _clean_text(text):
+    # pdfs and word docs are full of curly quotes and non-breaking
+    # spaces. tf-idf treats don't and don’t as different words,
+    # so normalise them before anything else sees the text.
+    return (
+        text.replace("\u2018", "'")
+        .replace("\u2019", "'")
+        .replace("\u201c", '"')
+        .replace("\u201d", '"')
+        .replace("\u00a0", " ")
+        .replace("\u00ad", "")
+    )
+
+
 def read_file(path):
     path = Path(path)
     suffix = path.suffix.lower()
@@ -41,6 +55,7 @@ def load_folder(folder):
 
 
 def chunk_text(text, size=900, overlap=150):
+    text = _clean_text(text)
     # first try to keep paragraphs together, it reads better in the
     # results and the model gets a coherent bit of text instead of
     # something cut in the middle of an argument
