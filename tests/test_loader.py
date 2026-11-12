@@ -25,3 +25,13 @@ def test_build_chunks_keeps_source():
     out = build_chunks(docs)
     assert out[0]["source"] == "a.txt"
     assert "hello" in out[0]["text"]
+
+
+def test_chunk_text_joins_hyphenated_line_breaks():
+    chunks = chunk_text("the hand-\nbook is on the desk")
+    assert chunks == ["the handbook is on the desk"]
+
+
+def test_chunk_text_keeps_real_hyphens():
+    chunks = chunk_text("a well-known fact about leave")
+    assert chunks == ["a well-known fact about leave"]
