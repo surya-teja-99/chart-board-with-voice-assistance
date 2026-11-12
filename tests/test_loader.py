@@ -25,3 +25,13 @@ def test_build_chunks_keeps_source():
     out = build_chunks(docs)
     assert out[0]["source"] == "a.txt"
     assert "hello" in out[0]["text"]
+
+
+def test_chunk_text_normalises_smart_quotes():
+    chunks = chunk_text("\u201cdon\u2019t\u201d leave early")
+    assert chunks == ['"don\'t" leave early']
+
+
+def test_chunk_text_normalises_non_breaking_spaces():
+    chunks = chunk_text("annual\u00a0leave is 25 days")
+    assert chunks == ["annual leave is 25 days"]
