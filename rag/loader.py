@@ -74,9 +74,19 @@ def _split_long(text, size, overlap):
     while start < len(text):
         end = start + size
         if end < len(text):
-            cut = text.rfind(" ", start, end)
-            if cut > start:
-                end = cut
+            # prefer a sentence end, so a chunk doesn't stop in the
+            # middle of a sentence when it doesn't have to
+            cut = -1
+            for mark in (". ", "? ", "! "):
+                pos = text.rfind(mark, start, end)
+                if pos > cut:
+                    cut = pos
+            if cut > start + size // 3:
+                end = cut + 1
+            else:
+                cut = text.rfind(" ", start, end)
+                if cut > start:
+                    end = cut
         piece = text[start:end].strip()
         if piece:
             out.append(piece)
