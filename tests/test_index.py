@@ -31,6 +31,19 @@ def test_unrelated_query_returns_nothing():
     assert real and real[0]["score"] > 0
 
 
+def test_empty_query_returns_nothing():
+    idx = make_index()
+    assert idx.search("", rerank=False) == []
+    assert idx.search("   \n  ", rerank=False) == []
+
+
+def test_messy_query_still_finds_the_doc():
+    idx = make_index()
+    results = idx.search("  how   many days\nof annual   leave  ", rerank=False)
+    assert results
+    assert results[0]["source"] == "leave.txt"
+
+
 def test_save_and_load(tmp_path):
     idx = make_index()
     path = tmp_path / "index.pkl"
