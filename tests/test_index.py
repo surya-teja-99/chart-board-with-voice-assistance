@@ -31,6 +31,16 @@ def test_unrelated_query_returns_nothing():
     assert real and real[0]["score"] > 0
 
 
+def test_large_k_returns_more_than_the_rerank_pool():
+    docs = [
+        {"source": f"doc{i}.txt", "text": f"annual leave day {i} holiday policy"}
+        for i in range(25)
+    ]
+    idx = Index(build_chunks(docs))
+    results = idx.search("annual leave", k=20, rerank=True)
+    assert len(results) == 20
+
+
 def test_save_and_load(tmp_path):
     idx = make_index()
     path = tmp_path / "index.pkl"

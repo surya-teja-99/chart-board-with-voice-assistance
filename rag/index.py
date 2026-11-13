@@ -53,8 +53,10 @@ class Index:
         if scores.max() <= 0:
             return []
 
-        # take more than k, then let the reranker sort it out
-        pool = 12 if rerank else k
+        # take more than k, then let the reranker sort it out.
+        # the pool has to be at least k, or asking for 20 results
+        # could only ever return 12
+        pool = max(12, k) if rerank else k
         order = np.argsort(scores)[::-1][:pool]
         results = [
             {**self.chunks[i], "score": float(scores[i])}
