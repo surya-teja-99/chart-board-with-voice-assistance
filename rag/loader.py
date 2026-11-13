@@ -59,8 +59,14 @@ def chunk_text(text, size=900, overlap=150):
             chunks.extend(_split_long(para, size, overlap))
         elif current and len(current) + len(para) + 1 > size:
             chunks.append(current)
-            # carry the tail over, otherwise the next chunk starts cold
-            current = (current[-overlap:] + " " + para) if overlap else para
+            # carry the tail over, otherwise the next chunk starts cold.
+            # back up to a space first, or the next chunk starts in
+            # the middle of a word
+            tail = current[-overlap:] if overlap else ""
+            space = tail.find(" ")
+            if space != -1:
+                tail = tail[space + 1 :]
+            current = f"{tail} {para}".strip() if tail else para
         else:
             current = f"{current} {para}".strip()
     if current:

@@ -25,3 +25,14 @@ def test_build_chunks_keeps_source():
     out = build_chunks(docs)
     assert out[0]["source"] == "a.txt"
     assert "hello" in out[0]["text"]
+
+
+def test_overlap_tail_starts_on_a_whole_word():
+    para1 = "one two three four five six seven eight nine ten eleven twelve thirteen fourteen"
+    para2 = "second paragraph follows now"
+    chunks = chunk_text(para1 + "\n\n" + para2, size=100, overlap=20)
+    assert len(chunks) == 2
+    # the old code started the next chunk with "ve thirteen" —
+    # the last 20 chars cut "twelve" in half
+    assert chunks[1].startswith("thirteen fourteen second paragraph")
+    assert not chunks[1].startswith("ve ")
